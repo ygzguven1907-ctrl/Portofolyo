@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALEXANDER VOSS | Digital Curator &amp; Athlete</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ffb4ab",
+              "background": "#0e1322",
+              "on-primary-container": "#002d47",
+              "surface-tint": "#92ccff",
+              "tertiary-container": "#c48400",
+              "on-error-container": "#ffdad6",
+              "on-tertiary-container": "#3c2500",
+              "inverse-primary": "#006397",
+              "surface-dim": "#0e1322",
+              "surface-bright": "#343949",
+              "on-tertiary": "#442b00",
+              "on-secondary-fixed-variant": "#2b4a63",
+              "secondary-fixed-dim": "#abcae8",
+              "surface-container-lowest": "#090e1c",
+              "on-primary": "#003351",
+              "error-container": "#93000a",
+              "on-background": "#dee1f7",
+              "outline-variant": "#3f4850",
+              "on-secondary-container": "#9dbcd9",
+              "on-primary-fixed-variant": "#004b73",
+              "secondary-fixed": "#cce5ff",
+              "inverse-surface": "#dee1f7",
+              "primary-container": "#3498db",
+              "on-secondary-fixed": "#001d31",
+              "on-surface": "#dee1f7",
+              "outline": "#89929b",
+              "tertiary": "#ffba4b",
+              "primary-fixed": "#cce5ff",
+              "secondary-container": "#2d4c65",
+              "on-primary-fixed": "#001d31",
+              "surface-container-highest": "#2f3445",
+              "tertiary-fixed-dim": "#ffba4b",
+              "on-tertiary-fixed": "#291800",
+              "secondary": "#abcae8",
+              "surface-container": "#1a1f2f",
+              "primary-fixed-dim": "#92ccff",
+              "on-error": "#690005",
+              "surface": "#0e1322",
+              "on-tertiary-fixed-variant": "#624000",
+              "surface-container-low": "#161b2b",
+              "surface-variant": "#2f3445",
+              "primary": "#92ccff",
+              "on-surface-variant": "#bfc7d2",
+              "on-secondary": "#11334b",
+              "inverse-on-surface": "#2b3040",
+              "surface-container-high": "#25293a",
+              "tertiary-fixed": "#ffddb1"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { background-color: #0e1322; color: #dee1f7; font-family: 'Manrope', sans-serif; }
+      .glass-card { backdrop-filter: blur(20px); background: rgba(37, 41, 58, 0.6); }
+      .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(52, 152, 219, 0.15) 0%, rgba(14, 19, 34, 1) 70%); }
+      .text-glow { text-shadow: 0 0 20px rgba(146, 204, 255, 0.4); }
+      .glow-border { box-shadow: inset 0 0 0 1px rgba(146, 204, 255, 0.2); }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center rounded-full mt-4 mx-auto max-w-7xl px-6 py-3 border border-slate-500/15 bg-slate-900/60 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+<div class="text-xl font-black tracking-tighter text-slate-100 dark:text-slate-50 uppercase font-headline">
+            ALEXANDER VOSS
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Epilogue'] tracking-widest uppercase text-sm font-bold text-blue-400 border-b-2 border-blue-400 pb-1 hover:scale-105 transition-all" href="#">About</a>
+<a class="font-['Epilogue'] tracking-widest uppercase text-sm font-bold text-slate-300 hover:text-white transition-colors hover:scale-105" href="#">Leadership</a>
+<a class="font-['Epilogue'] tracking-widest uppercase text-sm font-bold text-slate-300 hover:text-white transition-colors hover:scale-105" href="#">Career</a>
+<a class="font-['Epilogue'] tracking-widest uppercase text-sm font-bold text-slate-300 hover:text-white transition-colors hover:scale-105" href="#">Blog</a>
+<a class="font-['Epilogue'] tracking-widest uppercase text-sm font-bold text-slate-300 hover:text-white transition-colors hover:scale-105" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-full font-label font-bold uppercase tracking-wider text-xs hover:scale-105 active:scale-95 transition-all duration-300">
+            Connect
+        </button>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden hero-gradient">
+<!-- Background Lighting Blobs -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-secondary-container/20 rounded-full blur-[120px]"></div>
+<div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<div class="inline-block px-4 py-1 rounded-full bg-surface-container-highest/50 border border-outline-variant/20 mb-6">
+<span class="font-label text-primary text-xs tracking-[0.2em] uppercase">Professional Athlete &amp; Strategist</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-black leading-[1.1] mb-8 tracking-tighter text-glow">
+                    9 Yıllık Spor Disiplini, <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Dijital Pazarlamanın</span> <br/>
+                    Veri Odaklı Dünyasıyla Buluşuyor.
+                </h1>
+<p class="font-body text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed tracking-wide">
+                    Bir sporcunun dayanıklılığını, bir stratejistin analitik zekasıyla birleştiriyorum. Performans odaklı yaklaşımımla dijital ekosistemleri yeniden kurguluyorum.
+                </p>
+<div class="flex flex-wrap gap-6 items-center">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-label font-bold uppercase px-10 py-4 rounded-full shadow-lg shadow-primary/20 hover:scale-105 transition-transform duration-500">
+                        Explore Portfolio
+                    </button>
+<!-- Glassmorphic Stat Card -->
+<div class="glass-card glow-border px-6 py-4 rounded-xl flex items-center gap-4 group hover:bg-surface-bright/40 transition-colors cursor-default">
+<div class="text-primary-container">
+<span class="material-symbols-outlined text-4xl" data-icon="query_stats">query_stats</span>
+</div>
+<div>
+<div class="font-headline font-bold text-2xl text-white">100+</div>
+<div class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Data Reports Analysed</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-black/50 group">
+<img alt="Alexander Voss Portrait" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-700" data-alt="Cinematic close-up portrait of a professional athlete in a dark studio, blue side lighting, subtle atmospheric lens flares, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5GdZxyW03IdVacsXrdxo7k8O1QfmwFgR1PWxVuYOdYW3BCrGaPqDyFFr3bSOKp-rbLVvOpzNX456SOV6AM7SAv6ntwmuvioyvClXI5THcdkUFU4N8pQqzQ79ks3ArOipGFLtu7bEYOUvk-wNBtbxs4B6kXNd5HOHjan6bA9br39kk6gt-uUCN9PO-H3nS1ZblCOF60li4GE9ps295DobulH7_WqO-HShMpW2h4-BFThUa9vzFQJ3vrDHEbfQrqFZgc4rwSdAMFyUu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<!-- Decorative Element -->
+<div class="absolute top-6 right-6 px-4 py-2 glass-card rounded-lg border border-white/10">
+<span class="font-label text-[10px] uppercase tracking-tighter text-primary">Est. 2015</span>
+</div>
+</div>
+<!-- Floating Decorative Card -->
+<div class="absolute -bottom-10 -left-10 glass-card p-6 rounded-2xl glow-border max-w-[200px] hidden md:block">
+<div class="font-headline text-primary font-bold mb-1">DİSİPLİN</div>
+<div class="font-body text-xs text-on-surface-variant italic">"Spor sahalarından dijital veri tablolarına uzanan kararlılık."</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership & Sport Section -->
+<section class="py-32 bg-surface-container-low relative">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Karakterimi Şekillendiren Deneyimler</h2>
+<p class="font-body text-on-surface-variant text-lg">Dokuz yıllık profesyonel spor hayatım, sadece fiziksel bir gelişim değil; kriz yönetimi, liderlik ve stratejik düşünme becerilerimin temelidir.</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline-variant" data-icon="sports_basketball">sports_basketball</span>
+<span class="material-symbols-outlined text-primary" data-icon="leaderboard">leaderboard</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="insights">insights</span>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-card p-10 rounded-3xl group hover:-translate-y-2 transition-all duration-500 hover:bg-surface-container-highest">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="diversity_3" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Liderlik &amp; Takım Ruhu</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">Saha içinde ve dışında ekipleri motive etme, ortak bir hedefe odaklanma ve kolektif başarıyı yönetme sanatı.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-10 rounded-3xl group hover:-translate-y-2 transition-all duration-500 hover:bg-surface-container-highest">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/10 flex items-center justify-center mb-8 border border-secondary/20 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="timer" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Zaman Yönetimi</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">Yoğun antrenman programları ve akademik sorumluluklar arasında kurulan kusursuz denge disiplini.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-10 rounded-3xl group hover:-translate-y-2 transition-all duration-500 hover:bg-surface-container-highest">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-container/10 flex items-center justify-center mb-8 border border-tertiary/20 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Stratejik Odaklanma</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">Beklenmedik durumlarda sakin kalarak doğru kararı en hızlı şekilde verme ve süreci optimize etme yetisi.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Digital Career Path -->
+<section class="py-32 bg-surface">
+<div class="container mx-auto px-6">
+<div class="mb-20 text-center">
+<span class="font-label text-primary text-sm uppercase tracking-[0.4em]">Journey</span>
+<h2 class="font-headline text-4xl md:text-5xl font-black mt-4">Kariyer Yolculuğu</h2>
+</div>
+<div class="max-w-4xl mx-auto space-y-12 relative">
+<!-- Timeline Vertical Line -->
+<div class="absolute left-0 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary via-outline-variant/30 to-transparent hidden md:block"></div>
+<!-- Event 1 -->
+<div class="relative flex flex-col md:flex-row md:items-center gap-8 md:gap-0 group">
+<div class="md:w-1/2 md:pr-12 md:text-right">
+<span class="font-label text-xs text-primary-fixed mb-2 block">2022 - Present</span>
+<h4 class="font-headline text-2xl font-bold mb-2">Related Digital</h4>
+<p class="font-body text-on-surface-variant">Senior Marketing Strategist &amp; Automation Expert.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-surface shadow-[0_0_15px_rgba(146,204,255,0.6)] z-10"></div>
+<div class="md:w-1/2 md:pl-12">
+<div class="glass-card p-4 rounded-xl inline-block hover:scale-105 transition-transform duration-500 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100">
+<img alt="Company Logo" class="h-8 w-auto object-contain" data-alt="Monochrome corporate brand logo in white, minimalist digital tech style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSQAslpxU6oMOC_hCPyDQc7o99C1s0qSB0eQqRVaBc8ZktrlAMBZHGk-_UOs6BIJleZZzT42AL9NK3UekqjhRlo-XI5rgOJ0-LglADVOeKhaLI2qavtZU3dA1Cg2bE94qrIDj2WMvDE3Y0J2Lqwd4DrNLDBoea1sQqEd11s5n58Pm4Qs2mIavD6fDoeRDalUIwObFJjdiep4A_V-mzN5PFH44jWO_ME9U9dfKuhy53kYniALRUuPFpnxhJUA46ZScy2PMiDCP-PYki"/>
+</div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col md:flex-row-reverse md:items-center gap-8 md:gap-0 group">
+<div class="md:w-1/2 md:pl-12">
+<span class="font-label text-xs text-primary-fixed mb-2 block">2019 - 2022</span>
+<h4 class="font-headline text-2xl font-bold mb-2">Data Intelligence Academy</h4>
+<p class="font-body text-on-surface-variant">Analytic Modeling &amp; Digital Transformation Lead.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary transition-colors z-10"></div>
+<div class="md:w-1/2 md:pr-12 md:text-right">
+<div class="glass-card p-4 rounded-xl inline-block hover:scale-105 transition-transform duration-500 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100">
+<img alt="Academy Logo" class="h-8 w-auto object-contain" data-alt="Simplified monochrome university seal logo in white, professional academic branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiNn1YwmCSiwG0DiHbemcyvb6sUbhEek2Lx3RKVTPmyAG_8eJQmf2Bw77LyXrQSOSSbuaQaaf_ozawuP8PZIvlI4QjDKGxYWnFhNOmLrQJ4COcGGtc9dCZLzxRivo-kRJYY9gwHx_8sHVI7v_2MUIyISdxQLKszT60nHGrk7DK_-tlm4_N5eFTbmgb8Ymfmh0oLs9PFnbPM4yWcLkhzQR5UK8uq9lpHVAqMYKeHyucb5jBNd0ujTgEObUTaV_sM1mLuVyDRfmgRcQQ"/>
+</div>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col md:flex-row md:items-center gap-8 md:gap-0 group">
+<div class="md:w-1/2 md:pr-12 md:text-right">
+<span class="font-label text-xs text-primary-fixed mb-2 block">2015 - 2019</span>
+<h4 class="font-headline text-2xl font-bold mb-2">Varsity Sports Excellence</h4>
+<p class="font-body text-on-surface-variant">9 Years of Competitive Sport &amp; Professional Foundation.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary transition-colors z-10"></div>
+<div class="md:w-1/2 md:pl-12">
+<div class="glass-card p-4 rounded-xl inline-block hover:scale-105 transition-transform duration-500 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-3xl" data-icon="trophy" style="font-variation-settings: 'FILL' 1;">trophy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Expertise Grid -->
+<section class="py-32 bg-surface-container-low border-y border-outline-variant/5">
+<div class="container mx-auto px-6">
+<h3 class="font-headline text-3xl font-bold mb-16 text-center">Teknik Uzmanlık &amp; Sertifikasyonlar</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+<!-- Tool 1 -->
+<div class="flex flex-col items-center justify-center p-8 glass-card rounded-2xl group hover:bg-surface-bright transition-all">
+<img alt="Google Analytics" class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500 mb-4" data-alt="Google Analytics logo icon in a clean, flat aesthetic on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkStV-2VWU2ifjSB7WlwHk5GIFDJyQnWErE1NHkaa9yQOu2xQ8lSJmcFy8S-j70va1o_jBR14YdxQAkmRJ0X_p3myEVghTFWngB2bb04RJyrTyUQx3K8zaujoWRHe8nXFyu7GzwfMPsItF5tFGgLdrK8fSGtQAOpzk9GLACdvVsIP1AOPDIcfGIim2GPZK75QJ13J3JokHNnXl8KJOeK1Cvadntagb9ErrcF3ActTErK3KKpI7q-6DIRCYzt4UWnlQAwLJqNlLw8kv"/>
+<span class="font-label text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Analytics</span>
+</div>
+<!-- Tool 2 -->
+<div class="flex flex-col items-center justify-center p-8 glass-card rounded-2xl group hover:bg-surface-bright transition-all">
+<img alt="HubSpot" class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500 mb-4" data-alt="HubSpot sprocket icon in a clean, flat aesthetic on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU-4r9JKgBjwmsepdOpWqbb_rzfJVH05PXlsWyLJgfq8rEjKvi1EZedWjkUzO7Gb6joDKJPQEVvZwc-uqSEvOEfpTWMyJBmm9CAM4mTtlM6MRPHlGNhInbY_snadezeB89Su5nMKR6jZKSE4OJekulftdOPKC0JajKg-HrU1zh4ljnCYXX_TeXuxxnD9NKJuCj1I0ihIug8QxHUprkmblwNJ-XAhQcudynqg4rhEBpTqrOtLJH5cs4t9kdj-te4YbpP9Nhig5EiXsA"/>
+<span class="font-label text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">HubSpot</span>
+</div>
+<!-- Tool 3 -->
+<div class="flex flex-col items-center justify-center p-8 glass-card rounded-2xl group hover:bg-surface-bright transition-all">
+<img alt="Meta Ads" class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500 mb-4" data-alt="Meta logo symbol in a clean, flat aesthetic on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Y8J3Zaeb0PsV33bFXzw1Sb6nG9kAaHFmpOr3fxricYgf0BpSC-UdAp8R2M84_qN2bAuOzppAnPjU9BsDcGsS81oBAMvV6NLtMpVDTD4DTbF3-hQWTEnEjAk_3ZcUiVRb9hDuN4kZ9WvUwkERljr8otsCiRrBMIxff50NXrocMzQrDFEtjZ9d3NFPU48WCmR89rScOceNqB33rxvyAwmvz7cgK-49UZcJ7Rvh3hlUqXizGEWMhbI_s5B7gnTikuV_dBShoq5EVp71"/>
+<span class="font-label text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Meta Business</span>
+</div>
+<!-- Tool 4 -->
+<div class="flex flex-col items-center justify-center p-8 glass-card rounded-2xl group hover:bg-surface-bright transition-all">
+<img alt="Tableau" class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500 mb-4" data-alt="Tableau brand icon in a clean, flat aesthetic on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHr_-wrERXoU50t6HpwRCeTcdpnWB_o5upu0mD1VKkXJ6uMIs--DQ7CXQ4s-wxGyEq_vWPCsBpHS5b7aPzSSjZIW8osGsHHd-p9I-X2DYtegDPYyD-ZnNdgZFk5--ALiN1cD0dLsxiHVtGpiasYgzGNRdg5dCcKvfCX5qWyZHrL0uOq6tltFkK8tePnvup3zaTfkT0NUsGfMbRqQyN65cwhJEmW3tFijpCvULi2E8Pp4_N3mAPkSRh3_XZSsmiM55EzziSj1D3VGzu"/>
+<span class="font-label text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Tableau</span>
+</div>
+<!-- Tool 5 -->
+<div class="flex flex-col items-center justify-center p-8 glass-card rounded-2xl group hover:bg-surface-bright transition-all">
+<img alt="Python" class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500 mb-4" data-alt="Python programming language logo in a clean, flat aesthetic on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC42f56jP-lL8t8sv9tAplbKJe5QkMypLVq99dH08ym-jVIwQtzxuC1aYPLW8KprNLkPlhrH7nKhmn5QLn3AHUMFQZHSSjVwAPCIhF2g_NtPNLWpHwYAGYVLgDrdChCQ_W5wPYO3E_X_lc895p43qwLIuhRaWejH59TtzCYu-TMgNxxTVV-Cek3qbeoyY_8SuHk1jROblvnTzb2-r1jy5eSrIOKpt0EK5fiBjek4fAphGloJ5aH8tpSeNvcHlQZv7NrLbYZY0qN4OvX"/>
+<span class="font-label text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Python</span>
+</div>
+<!-- Tool 6 -->
+<div class="flex flex-col items-center justify-center p-8 glass-card rounded-2xl group hover:bg-surface-bright transition-all">
+<img alt="Salesforce" class="h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-500 mb-4" data-alt="Salesforce cloud logo in a clean, flat aesthetic on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlk3slgsnKA2EwwoNaGWGScszRWOF5WZrJHv6BKcDZa1fbJjm5GzXWE23iT4ARX02tiWa4-TQ445F0slrk4OXSbu8DhN-O_mFBk78bWY7dhwuCEBh2366ehOSSgPPxp-VTxB00skNOud4nALuB0hKqOjt8930Q2Vx_JRGkD_kEz6Vsgvz4-JzakIb8NSst6AHvhhWpziaEv3hQIA9n6Hw9uOeQFqBewn7jFogyk8VEicA8CpkFQoKSs2ulmqtd5lB4GS5H7XGuWs2R"/>
+<span class="font-label text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Salesforce</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Footer -->
+<footer class="bg-slate-950 block w-full py-12 px-8 border-t border-slate-800/30">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+<div class="flex flex-col items-center md:items-start">
+<div class="text-lg font-bold text-slate-200 uppercase font-headline tracking-tighter mb-4">
+                    ALEXANDER VOSS
+                </div>
+<h2 class="font-headline text-4xl md:text-5xl font-black mb-8 tracking-tighter">Bana Ulaşın</h2>
+<div class="flex gap-6 mb-8">
+<a class="text-slate-500 hover:text-blue-300 transition-all duration-300 font-['Space_Grotesk'] tracking-loose text-xs uppercase" href="#">LinkedIn</a>
+<a class="text-slate-500 hover:text-blue-300 transition-all duration-300 font-['Space_Grotesk'] tracking-loose text-xs uppercase" href="#">Instagram</a>
+<a class="text-slate-500 hover:text-blue-300 transition-all duration-300 font-['Space_Grotesk'] tracking-loose text-xs uppercase" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-blue-300 transition-all duration-300 font-['Space_Grotesk'] tracking-loose text-xs uppercase" href="#">GitHub</a>
+</div>
+<div class="font-['Space_Grotesk'] tracking-loose text-xs uppercase text-slate-500">
+                    © 2024 ALEXANDER VOSS. THE DIGITAL CURATOR.
+                </div>
+</div>
+<div class="w-full max-w-md">
+<div class="glass-card p-8 rounded-3xl border border-white/5 relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+<form class="relative z-10 space-y-4">
+<input class="w-full bg-surface-container-lowest border-none rounded-xl py-4 px-6 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all font-body" placeholder="E-posta Adresiniz" type="email"/>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-xl py-4 px-6 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all font-body" placeholder="Mesajınız" rows="3"></textarea>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-label font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                            GÖNDER
+                        </button>
+</form>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center pt-8 border-t border-white/5">
+<button class="text-primary-fixed-dim hover:text-primary transition-colors flex items-center justify-center mx-auto gap-2 group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="font-label text-xs uppercase tracking-[0.2em]">Back to top</span>
+<span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform" data-icon="arrow_upward">arrow_upward</span>
+</button>
+</div>
+</footer>
+</body></html>

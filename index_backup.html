@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mustafa Yağız Güven | Dijital Pazarlama</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "background": "#0e1322",
+        "surface": "#0e1322",
+        "surface-container-lowest": "#090e1c",
+        "surface-container-low": "#161b2b",
+        "surface-container": "#1a1f2f",
+        "surface-container-high": "#25293a",
+        "surface-container-highest": "#2f3445",
+        "surface-bright": "#343949",
+        "surface-variant": "#2f3445",
+        "primary": "#92ccff",
+        "primary-container": "#3498db",
+        "on-primary": "#003351",
+        "on-primary-container": "#002d47",
+        "secondary": "#abcae8",
+        "secondary-container": "#2d4c65",
+        "tertiary": "#ffba4b",
+        "on-surface": "#dee1f7",
+        "on-surface-variant": "#bfc7d2",
+        "outline": "#89929b",
+        "outline-variant": "#3f4850",
+        "primary-fixed": "#cce5ff",
+        "primary-fixed-dim": "#92ccff",
+      },
+      fontFamily: {
+        "headline": ["Epilogue", "sans-serif"],
+        "body": ["Manrope", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"],
+      },
+    },
+  },
+}
+</script>
+<style>
+  :root { scroll-behavior: smooth; }
+  body { background-color: #0e1322; color: #dee1f7; font-family: 'Manrope', sans-serif; }
+  .glass { backdrop-filter: blur(20px); background: rgba(37,41,58,0.6); }
+  .glass-light { backdrop-filter: blur(20px); background: rgba(37,41,58,0.35); }
+  .text-glow { text-shadow: 0 0 40px rgba(146,204,255,0.3); }
+  .glow-blob { filter: blur(80px); }
+  .tc { transition: all 600ms cubic-bezier(0.16,1,0.3,1); }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24; }
+  .card-hover:hover { transform: translateY(-4px); background: #343949; }
+  .lang-btn { border-bottom: 1.5px solid transparent; transition: all 300ms; }
+  .lang-btn.active { color: #92ccff; border-color: #92ccff; }
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #0e1322; }
+  ::-webkit-scrollbar-thumb { background: #3498db; border-radius: 2px; }
+</style>
+</head>
+<body class="selection:bg-primary/20 overflow-x-hidden">
+
+<!-- NAV -->
+<nav class="fixed top-4 left-0 right-0 z-50 mx-auto max-w-6xl px-4">
+  <div class="glass flex justify-between items-center rounded-full px-6 py-3 border border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+    <div class="font-headline text-lg font-black tracking-tighter uppercase text-on-surface">MYG<span class="text-primary">.</span></div>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#about"      class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Hakkımda"  data-en="About">Hakkımda</a>
+      <a href="#career"     class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Kariyer"    data-en="Career">Kariyer</a>
+      <a href="#skills"     class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Beceriler"  data-en="Skills">Beceriler</a>
+      <a href="#spor"       class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Spor"       data-en="Sport">Spor</a>
+      <a href="#projects"   class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Projeler"   data-en="Projects">Projeler</a>
+      <a href="#contact"    class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="İletişim"   data-en="Contact">İletişim</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1 font-label text-xs">
+        <button onclick="setLang('tr')" id="btn-tr" class="lang-btn active px-2 py-1 uppercase tracking-widest">TR</button>
+        <span class="text-outline-variant/40">/</span>
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn px-2 py-1 uppercase tracking-widest text-on-surface-variant">EN</button>
+      </div>
+      <a href="#contact" class="hidden md:block bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-label font-bold uppercase px-5 py-2 rounded-full text-xs tracking-wider hover:scale-105 active:scale-95 tc" data-tr="İletişim" data-en="Connect">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+  <div class="absolute inset-0" style="background:radial-gradient(ellipse at 65% 40%, rgba(52,152,219,0.13) 0%, #0e1322 65%);"></div>
+  <div class="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-primary/8 rounded-full glow-blob opacity-50"></div>
+  <div class="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-secondary-container/15 rounded-full glow-blob"></div>
+  <div class="max-w-5xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center pb-24">
+    <!-- Text col -->
+    <div class="lg:col-span-7">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-highest/40 border border-outline-variant/15 mb-8">
+        <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+        <span class="font-label text-primary text-[11px] tracking-[0.25em] uppercase" data-tr="İktisat Mezunu · Dijital Pazarlama" data-en="Economics Graduate · Digital Marketing">İktisat Mezunu · Dijital Pazarlama</span>
+      </div>
+      <h1 class="font-headline font-black leading-[1.05] tracking-tight text-glow mb-6">
+        <span class="block text-5xl md:text-7xl text-on-surface">Mustafa</span>
+        <span class="block text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary mt-1">Yağız Güven</span>
+      </h1>
+      <p class="font-body text-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed tracking-wide"
+         data-tr="12 yıllık spor geçmişimden kazandığım kararlılığı, dijital pazarlama ve veri odaklı stratejilerle buluşturan genç profesyonel."
+         data-en="A young professional who channels the discipline from 12 years of sports background into data-driven digital marketing strategies.">
+        12 yıllık spor geçmişimden kazandığım kararlılığı, dijital pazarlama ve veri odaklı stratejilerle buluşturan genç profesyonel.
+      </p>
+      <div class="flex flex-wrap gap-4 items-center">
+        <a href="#career" class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-label font-bold uppercase px-8 py-4 rounded-full text-sm tracking-wider shadow-lg shadow-primary/20 hover:scale-105 tc"
+           data-tr="Kariyer Yolculuğum" data-en="My Journey">Kariyer Yolculuğum</a>
+        <a href="mailto:mygzguven@gmail.com" class="glass-light font-label text-xs uppercase tracking-wider px-8 py-4 rounded-full border border-outline-variant/20 hover:border-primary/30 hover:text-primary tc"
+           data-tr="İletişime Geç" data-en="Get in Touch">İletişime Geç</a>
+      </div>
+      <!-- Stats -->
+      <div class="flex flex-wrap gap-8 mt-14">
+        <div>
+          <div class="font-headline text-3xl font-black text-primary">12</div>
+          <div class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mt-1" data-tr="Yıl Spor Geçmişi" data-en="Years Sport Background">Yıl Spor Geçmişi</div>
+        </div>
+        <div class="w-px bg-outline-variant/30 self-stretch"></div>
+        <div>
+          <div class="font-headline text-3xl font-black text-primary">5+</div>
+          <div class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mt-1" data-tr="Staj Deneyimi" data-en="Internships">Staj Deneyimi</div>
+        </div>
+        <div class="w-px bg-outline-variant/30 self-stretch"></div>
+        <div>
+          <div class="font-headline text-3xl font-black text-primary">3+</div>
+          <div class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mt-1" data-tr="Gönüllülük Rolü" data-en="Volunteer Roles">Gönüllülük Rolü</div>
+        </div>
+      </div>
+    </div>
+    <!-- Photo col -->
+    <div class="lg:col-span-4 lg:col-start-9 relative">
+      <div class="relative mx-auto max-w-xs">
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent blur-xl"></div>
+        <div class="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-surface-container-low shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-outline-variant/10">
+          <img src="1775204161028.jpg" alt="Mustafa Yağız Güven" class="w-full h-full object-cover object-top"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+        <div class="absolute -bottom-6 -left-6 glass px-5 py-4 rounded-2xl border border-white/5 hidden md:block">
+          <div class="font-headline text-primary font-bold text-sm mb-0.5">Related Digital</div>
+          <div class="font-body text-[10px] text-on-surface-variant" data-tr="Doğuş Grubu · Devam ediyor" data-en="Doğuş Group · Ongoing">Doğuş Grubu · Devam ediyor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 pointer-events-none">
+    <span class="font-label text-[10px] uppercase tracking-[0.3em] text-on-surface-variant">Scroll</span>
+    <div class="w-px h-10 bg-gradient-to-b from-outline-variant to-transparent"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-32 bg-surface-container-low">
+  <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+      <div>
+        <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Hakkımda" data-en="About Me">Hakkımda</span>
+        <h2 class="font-headline text-4xl md:text-5xl font-black mb-8 tracking-tight leading-tight"
+            data-tr="Sahadan Stratejiye" data-en="From Field to Strategy">Sahadan Stratejiye</h2>
+        <p class="font-body text-on-surface-variant leading-relaxed tracking-wide mb-5"
+           data-tr="Ben Mustafa Yağız Güven, Eskişehir Anadolu Üniversitesi İktisat Bölümü mezunuyum. 12 yıllık genel spor geçmişimde basketbol, paletli yüzme ve su altı hokeyiyle ilgilendim."
+           data-en="I am Mustafa Yağız Güven, an Economics graduate from Anadolu University in Eskişehir. Over my 12-year sports background, I was involved in basketball, finswimming and underwater hockey.">
+          Ben Mustafa Yağız Güven, Eskişehir Anadolu Üniversitesi İktisat Bölümü mezunuyum. 12 yıllık genel spor geçmişimde basketbol, paletli yüzme ve su altı hokeyiyle ilgilendim.
+        </p>
+        <p class="font-body text-on-surface-variant leading-relaxed tracking-wide mb-8"
+           data-tr="Bu süreçte edindiğim takım çalışması, disiplin ve azim gibi becerileri iş hayatımda da kullanmaya önem veriyorum. Gönüllülük projelerine katılmak, iletişim becerilerimi geliştirmek ve araştırma yapmak önceliklerim arasında. Yeniliklere açık, sürekli gelişim ve öğrenme odaklı bir yapıya sahibim."
+           data-en="I value bringing the teamwork, discipline, and determination developed through sport into my professional life. Participating in volunteer projects, improving my communication skills, and research are among my top priorities. I am open to innovation and oriented toward continuous growth and learning.">
+          Bu süreçte edindiğim takım çalışması, disiplin ve azim gibi becerileri iş hayatımda da kullanmaya önem veriyorum. Gönüllülük projelerine katılmak, iletişim becerilerimi geliştirmek ve araştırma yapmak önceliklerim arasında. Yeniliklere açık, sürekli gelişim ve öğrenme odaklı bir yapıya sahibim.
+        </p>
+        <a href="mailto:mygzguven@gmail.com" class="inline-flex items-center gap-2 font-label text-xs text-primary uppercase tracking-wider hover:gap-4 tc">
+          <span class="material-symbols-outlined text-base">mail</span>
+          mygzguven@gmail.com
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-5 border border-primary/15">
+            <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1">diversity_3</span>
+          </div>
+          <h4 class="font-headline font-bold text-base mb-2" data-tr="Liderlik" data-en="Leadership">Liderlik</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-tr="Kariyer kulübü yönetimi ve takım organizasyonu" data-en="Career club management and team organization">Kariyer kulübü yönetimi ve takım organizasyonu</p>
+        </div>
+        <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc mt-8">
+          <div class="w-10 h-10 rounded-xl bg-secondary-container/20 flex items-center justify-center mb-5 border border-secondary/15">
+            <span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings:'FILL' 1">campaign</span>
+          </div>
+          <h4 class="font-headline font-bold text-base mb-2" data-tr="Dijital Pazarlama" data-en="Digital Marketing">Dijital Pazarlama</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-tr="Business Manager, kampanya ve veri analizi" data-en="Business Manager, campaign & data analysis">Business Manager, kampanya ve veri analizi</p>
+        </div>
+        <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc">
+          <div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center mb-5 border border-tertiary/15">
+            <span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings:'FILL' 1">psychology</span>
+          </div>
+          <h4 class="font-headline font-bold text-base mb-2" data-tr="Stratejik Düşünce" data-en="Strategic Thinking">Stratejik Düşünce</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-tr="Veri odaklı karar alma ve analiz" data-en="Data-driven decision making">Veri odaklı karar alma ve analiz</p>
+        </div>
+        <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc mt-8">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-5 border border-primary/15">
+            <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1">handshake</span>
+          </div>
+          <h4 class="font-headline font-bold text-base mb-2" data-tr="Gönüllülük" data-en="Volunteering">Gönüllülük</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-tr="Topluma katkı ve sosyal sorumluluk" data-en="Community contribution & social responsibility">Topluma katkı ve sosyal sorumluluk</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER TIMELINE -->
+<section id="career" class="py-32 bg-surface relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full glow-blob"></div>
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center mb-20">
+      <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Deneyimler" data-en="Experience">Deneyimler</span>
+      <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tight" data-tr="Kariyer Yolculuğu" data-en="Career Journey">Kariyer Yolculuğu</h2>
+    </div>
+    <div class="max-w-4xl mx-auto relative">
+      <div class="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-outline-variant/20 to-transparent"></div>
+
+      <!-- Related Digital -->
+      <div class="relative flex flex-col md:flex-row md:items-start group pb-16">
+        <div class="md:w-1/2 md:pr-16 md:text-right pl-16 md:pl-0">
+          <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em] block mb-2" data-tr="Tem. 2025 – Devam ediyor" data-en="Jul 2025 – Ongoing">Tem. 2025 – Devam ediyor</span>
+          <h4 class="font-headline text-xl font-bold mb-1" data-tr="Satış Stajyeri" data-en="Sales Intern">Satış Stajyeri</h4>
+          <div class="font-label text-primary-container text-sm mb-3">Related Digital · Doğuş Grubu · İstanbul</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+             data-tr="Müşteri ilişkileri, kampanya yönetimi ve dijital pazarlama süreçlerinde satış ekibine destek; markaların dijital başarı hedeflerine ulaşması için veri odaklı çözümler geliştirme."
+             data-en="Supporting the sales team in customer relations, campaign management and digital marketing processes; developing data-driven solutions to help brands achieve their digital success goals.">
+            Müşteri ilişkileri, kampanya yönetimi ve dijital pazarlama süreçlerinde satış ekibine destek; markaların dijital başarı hedeflerine ulaşması için veri odaklı çözümler geliştirme.
+          </p>
+          <button onclick="openLightbox('1753083261489.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video mt-4 group/img">
+            <img src="1753083261489.jpg" alt="Related Digital Satış Stajı" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-primary border-4 border-surface shadow-[0_0_12px_rgba(146,204,255,0.5)] z-10 top-1"></div>
+        <div class="md:w-1/2 md:pl-16 hidden md:flex items-start pt-1">
+          <div class="glass-light px-4 py-3 rounded-xl border border-outline-variant/10 inline-flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1">business_center</span>
+            <span class="font-label text-xs text-on-surface-variant uppercase tracking-wider" data-tr="Aktif Pozisyon" data-en="Active Position">Aktif Pozisyon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fakir AR-GE -->
+      <div class="relative flex flex-col md:flex-row-reverse md:items-start group pb-16">
+        <div class="md:w-1/2 md:pl-16 pl-16">
+          <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em] block mb-2" data-tr="Tem. – Ağu. 2024" data-en="Jul – Aug 2024">Tem. – Ağu. 2024</span>
+          <h4 class="font-headline text-xl font-bold mb-1" data-tr="AR-GE Stajyeri" data-en="R&amp;D Intern">AR-GE Stajyeri</h4>
+          <div class="font-label text-primary-container text-sm mb-3">Fakir Elektrikli Ev Aletleri · İstanbul</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+             data-tr="Ürün yönetimi ve maliyet hesaplamaları; kalite standartlarına uygunluk testleri, analizler ve raporlamalar. Ürünlerin mekanik incelemesi ve kalite kontrol süreçleri."
+             data-en="Product management and cost calculations; quality standards compliance testing, analysis and reporting. Mechanical inspection of products and quality control processes.">
+            Ürün yönetimi ve maliyet hesaplamaları; kalite standartlarına uygunluk testleri, analizler ve raporlamalar. Ürünlerin mekanik incelemesi ve kalite kontrol süreçleri.
+          </p>
+          <button onclick="openLightbox('1719829407544.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video mt-4 group/img">
+            <img src="1719829407544.jpg" alt="Fakir Elektrikli Ev Aletleri AR-GE Stajı" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary tc z-10 top-1"></div>
+        <div class="md:w-1/2 md:pr-16 hidden md:flex justify-end items-start pt-1">
+          <div class="glass-light px-4 py-3 rounded-xl border border-outline-variant/10 inline-flex items-center gap-3">
+            <span class="material-symbols-outlined text-on-surface-variant text-xl" style="font-variation-settings:'FILL' 1">science</span>
+            <span class="font-label text-xs text-on-surface-variant uppercase tracking-wider">AR-GE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gişe.com -->
+      <div class="relative flex flex-col md:flex-row md:items-start group pb-16">
+        <div class="md:w-1/2 md:pr-16 md:text-right pl-16 md:pl-0">
+          <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em] block mb-2" data-tr="Oca. – Haz. 2024" data-en="Jan – Jun 2024">Oca. – Haz. 2024</span>
+          <h4 class="font-headline text-xl font-bold mb-1" data-tr="Dijital Pazarlama Stajyeri" data-en="Digital Marketing Intern">Dijital Pazarlama Stajyeri</h4>
+          <div class="font-label text-primary-container text-sm mb-3">Gişe.com · Eskişehir</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+             data-tr="Business Manager ve reklam araçları ile dijital kampanya yönetimi deneyimi. Gişe.com paneli üzerinden etkinlik paylaşımları ve dijital pazarlama stratejilerinin hayata geçirilmesi."
+             data-en="Digital campaign management experience with Business Manager and advertising tools. Event publishing via Gişe.com panel and implementing digital marketing strategies.">
+            Business Manager ve reklam araçları ile dijital kampanya yönetimi deneyimi. Gişe.com paneli üzerinden etkinlik paylaşımları ve dijital pazarlama stratejilerinin hayata geçirilmesi.
+          </p>
+          <button onclick="openLightbox('1774858668252.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video mt-4 group/img">
+            <img src="1774858668252.jpg" alt="Gişe.com Dijital Pazarlama Stajı" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary tc z-10 top-1"></div>
+        <div class="md:w-1/2 md:pl-16 hidden md:flex items-start pt-1">
+          <div class="glass-light px-4 py-3 rounded-xl border border-outline-variant/10 inline-flex items-center gap-3">
+            <span class="material-symbols-outlined text-on-surface-variant text-xl" style="font-variation-settings:'FILL' 1">ads_click</span>
+            <span class="font-label text-xs text-on-surface-variant uppercase tracking-wider" data-tr="Dijital Pazarlama" data-en="Digital Marketing">Dijital Pazarlama</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QNB -->
+      <div class="relative flex flex-col md:flex-row-reverse md:items-start group pb-16">
+        <div class="md:w-1/2 md:pl-16 pl-16">
+          <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em] block mb-2" data-tr="Oca. – Şub. 2024" data-en="Jan – Feb 2024">Oca. – Şub. 2024</span>
+          <h4 class="font-headline text-xl font-bold mb-1" data-tr="Finans Stajyeri" data-en="Finance Intern">Finans Stajyeri</h4>
+          <div class="font-label text-primary-container text-sm mb-3">QNB Finansbank · Eskişehir</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+             data-tr="Bankacılık sektörünün işleyişine kapsamlı bakış açısı kazanma. Teorik bilgilerin pekiştirilmesi ve sektörün güncel uygulamalarının yakından gözlemlenmesi."
+             data-en="Gaining a comprehensive perspective on the banking sector's operations. Consolidating theoretical knowledge and closely observing current industry practices.">
+            Bankacılık sektörünün işleyişine kapsamlı bakış açısı kazanma. Teorik bilgilerin pekiştirilmesi ve sektörün güncel uygulamalarının yakından gözlemlenmesi.
+          </p>
+          <button onclick="openLightbox('1775204979039.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video mt-4 group/img">
+            <img src="1775204979039.jpg" alt="QNB Finansbank Finans Stajı" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary tc z-10 top-1"></div>
+        <div class="md:w-1/2 md:pr-16 hidden md:flex justify-end items-start pt-1">
+          <div class="glass-light px-4 py-3 rounded-xl border border-outline-variant/10 inline-flex items-center gap-3">
+            <span class="material-symbols-outlined text-on-surface-variant text-xl" style="font-variation-settings:'FILL' 1">account_balance</span>
+            <span class="font-label text-xs text-on-surface-variant uppercase tracking-wider" data-tr="Finans" data-en="Finance">Finans</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Human Ports -->
+      <div class="relative flex flex-col md:flex-row md:items-start group">
+        <div class="md:w-1/2 md:pr-16 md:text-right pl-16 md:pl-0">
+          <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em] block mb-2" data-tr="Nis. – Haz. 2023" data-en="Apr – Jun 2023">Nis. – Haz. 2023</span>
+          <h4 class="font-headline text-xl font-bold mb-1" data-tr="Proje Stajyeri" data-en="Project Intern">Proje Stajyeri</h4>
+          <div class="font-label text-primary-container text-sm mb-3">Human Ports · Belgrad, Sırbistan</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+             data-tr="30 günlük uluslararası program: İngilizce dil eğitimi, sosyal medya pazarlaması ve proje yönetimi. Teorik bilgilerin pratiğe dönüştürülmesi."
+             data-en="30-day international program: English language training, social media marketing and project management. Translating theoretical knowledge into practice.">
+            30 günlük uluslararası program: İngilizce dil eğitimi, sosyal medya pazarlaması ve proje yönetimi. Teorik bilgilerin pratiğe dönüştürülmesi.
+          </p>
+          <button onclick="openLightbox('unnamed.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video mt-4 group/img">
+            <img src="unnamed.jpg" alt="Human Ports Belgrad Stajı" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary tc z-10 top-1"></div>
+        <div class="md:w-1/2 md:pl-16 hidden md:flex items-start pt-1">
+          <div class="glass-light px-4 py-3 rounded-xl border border-outline-variant/10 inline-flex items-center gap-3">
+            <span class="material-symbols-outlined text-on-surface-variant text-xl" style="font-variation-settings:'FILL' 1">public</span>
+            <span class="font-label text-xs text-on-surface-variant uppercase tracking-wider" data-tr="Uluslararası" data-en="International">Uluslararası</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yüzme Antrenörlüğü -->
+      <div class="relative flex flex-col md:flex-row-reverse md:items-start group pt-16">
+        <div class="md:w-1/2 md:pl-16 pl-16">
+          <span class="font-label text-[10px] text-primary uppercase tracking-[0.2em] block mb-2" data-tr="2020 – 2025" data-en="2020 – 2025">2020 – 2025</span>
+          <h4 class="font-headline text-xl font-bold mb-1" data-tr="Yüzme Antrenörü" data-en="Swimming Coach">Yüzme Antrenörü</h4>
+          <div class="font-label text-primary-container text-sm mb-3" data-tr="Bireysel & Kulüp · Eskişehir" data-en="Individual & Club · Eskişehir">Bireysel & Kulüp · Eskişehir</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+             data-tr="5 yıl boyunca her yaştan öğrenciye bireysel ve grup dersleri verdim. Birden fazla kulüpte antrenörlük yaparak değerli deneyimler kazandım."
+             data-en="For 5 years, I provided private and group lessons to students of all ages. I gained valuable experience coaching at multiple clubs.">
+            5 yıl boyunca her yaştan öğrenciye bireysel ve grup dersleri verdim. Birden fazla kulüpte antrenörlük yaparak değerli deneyimler kazandım.
+          </p>
+          <button onclick="openLightbox('1775206021833.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video mt-4 group/img">
+            <img src="1775206021833.jpg" alt="Yüzme Antrenörlüğü" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-outline-variant border-4 border-surface group-hover:bg-primary tc z-10 top-17"></div>
+        <div class="md:w-1/2 md:pr-16 hidden md:flex justify-end items-start pt-1 mt-16">
+          <div class="glass-light px-4 py-3 rounded-xl border border-outline-variant/10 inline-flex items-center gap-3">
+            <span class="material-symbols-outlined text-on-surface-variant text-xl" style="font-variation-settings:'FILL' 1">pool</span>
+            <span class="font-label text-xs text-on-surface-variant uppercase tracking-wider" data-tr="Spor" data-en="Sport">Spor</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS + EDUCATION -->
+<section id="skills" class="py-32 bg-surface-container-low">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-16">
+        <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Beceriler" data-en="Skills">Beceriler</span>
+        <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tight" data-tr="Uzmanlık &amp; Eğitim" data-en="Expertise &amp; Education">Uzmanlık &amp; Eğitim</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="font-label text-xs uppercase tracking-[0.25em] text-on-surface-variant mb-6" data-tr="Temel Beceriler" data-en="Core Skills">Temel Beceriler</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20" data-tr="Dijital Pazarlama" data-en="Digital Marketing">Dijital Pazarlama</span>
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20" data-tr="Marka İletişimi" data-en="Brand Communication">Marka İletişimi</span>
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant" data-tr="Pazarlama" data-en="Marketing">Pazarlama</span>
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant" data-tr="İletişim" data-en="Communication">İletişim</span>
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant" data-tr="Ekip Çalışması" data-en="Teamwork">Ekip Çalışması</span>
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant">Microsoft Office</span>
+            <span class="font-label text-xs uppercase tracking-wider px-4 py-2 rounded-full bg-secondary-container/30 text-secondary border border-secondary/20" data-tr="İngilizce B1" data-en="English B1">İngilizce B1</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-label text-xs uppercase tracking-[0.25em] text-on-surface-variant mb-6" data-tr="Eğitim" data-en="Education">Eğitim</h3>
+          <div class="space-y-4">
+            <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-headline font-bold text-base mb-1" data-tr="İktisat" data-en="Economics">İktisat</h4>
+                  <div class="font-label text-primary-container text-xs mb-1">Anadolu Üniversitesi</div>
+                  <p class="font-body text-on-surface-variant text-xs">Eskişehir</p>
+                </div>
+                <span class="font-label text-[10px] text-on-surface-variant uppercase tracking-wider whitespace-nowrap">2020 – 2025</span>
+              </div>
+            </div>
+            <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-headline font-bold text-base mb-1" data-tr="Marka İletişimi" data-en="Brand Communication">Marka İletişimi</h4>
+                  <div class="font-label text-primary-container text-xs mb-1">Anadolu Üniversitesi Açıköğretim</div>
+                  <p class="font-body text-on-surface-variant text-xs">Eskişehir</p>
+                </div>
+                <span class="font-label text-[10px] text-primary uppercase tracking-wider whitespace-nowrap" data-tr="2024 – Devam" data-en="2024 – Ongoing">2024 – Devam</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEERING -->
+<section class="py-32 bg-surface">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Gönüllülükler" data-en="Volunteering">Gönüllülükler</span>
+        <h2 class="font-headline text-4xl font-black tracking-tight" data-tr="Topluma Katkı" data-en="Community Impact">Topluma Katkı</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass-light p-8 rounded-3xl border border-outline-variant/10 card-hover tc group">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/15 group-hover:scale-110 tc">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">groups</span>
+          </div>
+          <div class="font-label text-[10px] text-primary uppercase tracking-wider mb-2" data-tr="Haz. 2023 – Eki. 2024" data-en="Jun 2023 – Oct 2024">Haz. 2023 – Eki. 2024</div>
+          <h4 class="font-headline font-bold text-lg mb-2" data-tr="Yönetim Kurulu Başkanı" data-en="Board President">Yönetim Kurulu Başkanı</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5" data-tr="Eskişehir Anadolu Üniversitesi Kariyer Kulübü" data-en="Eskişehir Anadolu University Career Club">Eskişehir Anadolu Üniversitesi Kariyer Kulübü</p>
+          <!-- Photos -->
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="openLightbox('1703506317080.jpg')" class="relative overflow-hidden rounded-xl aspect-square group/img">
+              <img src="1703506317080.jpg" alt="Kariyer Kulübü" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+                <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+              </div>
+            </button>
+            <button onclick="openLightbox('1718373594944.jpg')" class="relative overflow-hidden rounded-xl aspect-square group/img">
+              <img src="1718373594944.jpg" alt="Kariyer Kulübü" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+                <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="glass-light p-8 rounded-3xl border border-outline-variant/10 card-hover tc group md:mt-8">
+          <div class="w-12 h-12 rounded-2xl bg-secondary-container/20 flex items-center justify-center mb-6 border border-secondary/15 group-hover:scale-110 tc">
+            <span class="material-symbols-outlined text-secondary" style="font-variation-settings:'FILL' 1">forest</span>
+          </div>
+          <div class="font-label text-[10px] text-primary uppercase tracking-wider mb-2" data-tr="May. 2021 – Haz. 2023" data-en="May 2021 – Jun 2023">May. 2021 – Haz. 2023</div>
+          <h4 class="font-headline font-bold text-lg mb-2" data-tr="Lider" data-en="Leader">Lider</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5" data-tr="Nasuh Mahruki Doğada Liderlik Okulu" data-en="Nasuh Mahruki Leadership in Nature School">Nasuh Mahruki Doğada Liderlik Okulu</p>
+          <button onclick="openLightbox('1774857718126.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video group/img">
+            <img src="1774857718126.jpg" alt="Nasuh Mahruki Doğada Liderlik Okulu" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+        <div class="glass-light p-8 rounded-3xl border border-outline-variant/10 card-hover tc group">
+          <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center mb-6 border border-tertiary/15 group-hover:scale-110 tc">
+            <span class="material-symbols-outlined text-tertiary" style="font-variation-settings:'FILL' 1">storefront</span>
+          </div>
+          <div class="font-label text-[10px] text-primary uppercase tracking-wider mb-2" data-tr="Ara. 2024 – Haz. 2025" data-en="Dec 2024 – Jun 2025">Ara. 2024 – Haz. 2025</div>
+          <h4 class="font-headline font-bold text-lg mb-2" data-tr="Kampüs Elçisi" data-en="Campus Ambassador">Kampüs Elçisi</h4>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5">Domino's Pizza</p>
+          <button onclick="openLightbox('1735766585385.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video group/img">
+            <img src="1735766585385.jpg" alt="Domino's Pizza Kampüs Elçisi" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORT HISTORY -->
+<section id="spor" class="py-32 bg-surface">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-16">
+        <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Spor Geçmişi" data-en="Sport History">Spor Geçmişi</span>
+        <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tight" data-tr="Atletik Kimlik" data-en="Athletic Identity">Atletik Kimlik</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Basketbol -->
+        <div class="glass-light p-6 rounded-3xl border border-outline-variant/10 card-hover tc group md:col-span-2">
+          <div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center mb-5 border border-tertiary/15 group-hover:scale-110 tc">
+            <span class="material-symbols-outlined text-tertiary" style="font-variation-settings:'FILL' 1">sports_basketball</span>
+          </div>
+          <div class="font-label text-[10px] text-primary uppercase tracking-wider mb-1">2009 – 2013</div>
+          <h4 class="font-headline font-bold text-xl mb-1" data-tr="Basketbol" data-en="Basketball">Basketbol</h4>
+          <div class="font-label text-primary-container text-xs mb-3">Sortie Basketbol Takımı</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5"
+             data-tr="Spor yolculuğum 2009'da Sortie Basketbol Takımı'nda başladı. 4 yıl boyunca aktif olarak oynadım ve takım kaptanlığı yaptım."
+             data-en="My sports journey began in 2009 with Sortie Basketball Team. I actively played for 4 years and served as team captain.">
+            Spor yolculuğum 2009'da Sortie Basketbol Takımı'nda başladı. 4 yıl boyunca aktif olarak oynadım ve takım kaptanlığı yaptım.
+          </p>
+          <button onclick="openLightbox('1775206801776.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video group/img">
+            <img src="1775206801776.jpg" alt="Basketbol" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Su Altı Hokeyi -->
+        <div class="glass-light p-6 rounded-3xl border border-outline-variant/10 card-hover tc group">
+          <div class="w-10 h-10 rounded-xl bg-secondary-container/20 flex items-center justify-center mb-5 border border-secondary/15 group-hover:scale-110 tc">
+            <span class="material-symbols-outlined text-secondary" style="font-variation-settings:'FILL' 1">scuba_diving</span>
+          </div>
+          <div class="font-label text-[10px] text-primary uppercase tracking-wider mb-1">2017 – 2021</div>
+          <h4 class="font-headline font-bold text-xl mb-1" data-tr="Su Altı Hokeyi" data-en="Underwater Hockey">Su Altı Hokeyi</h4>
+          <div class="font-label text-primary-container text-xs mb-3">Beylikdüzü Yüzme Kulübü</div>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5"
+             data-tr="Paletli yüzmenin yanında su altı hokeyine adım attım. Türkiye Şampiyonası'nda takım olarak ilk 5'e girdik."
+             data-en="Alongside finswimming, I stepped into underwater hockey. Our team finished in the top 5 at the Turkish Championship.">
+            Paletli yüzmenin yanında su altı hokeyine adım attım. Türkiye Şampiyonası'nda takım olarak ilk 5'e girdik.
+          </p>
+          <button onclick="openLightbox('1775207140621.jpg')" class="relative overflow-hidden rounded-xl w-full aspect-video group/img">
+            <img src="1775207140621.jpg" alt="Su Altı Hokeyi" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+              <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Yüzme -->
+        <div class="glass-light p-6 rounded-3xl border border-outline-variant/10 card-hover tc group md:col-span-3 md:flex md:gap-8 md:items-start">
+          <div class="md:w-1/3 mb-5 md:mb-0">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-5 border border-primary/15 group-hover:scale-110 tc">
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">pool</span>
+            </div>
+            <div class="font-label text-[10px] text-primary uppercase tracking-wider mb-1">2013 – 2021</div>
+            <h4 class="font-headline font-bold text-xl mb-1" data-tr="Paletli Yüzme" data-en="Finswimming">Paletli Yüzme</h4>
+            <div class="font-label text-primary-container text-xs mb-3">Beykent / Beylikdüzü Yüzme Kulübü</div>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed"
+               data-tr="2013'te başladığım paletli yüzmede Türkiye Şampiyonası finallerine ve il şampiyonluğuna ulaştım. Okullar arası ve üniversite kategorisinde 1.'lik dereceleri kazandım."
+               data-en="In finswimming, which I started in 2013, I reached the Turkish Championship finals and won the provincial championship. I achieved 1st place in both inter-school and university competitions.">
+              2013'te başladığım paletli yüzmede Türkiye Şampiyonası finallerine ve il şampiyonluğuna ulaştım. Okullar arası ve üniversite kategorisinde 1.'lik dereceleri kazandım.
+            </p>
+          </div>
+          <div class="md:w-2/3 grid grid-cols-2 gap-3">
+            <button onclick="openLightbox('1775206748398.jpg')" class="relative overflow-hidden rounded-xl aspect-square group/img">
+              <img src="1775206748398.jpg" alt="Paletli Yüzme" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+                <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+              </div>
+            </button>
+            <button onclick="openLightbox('1775206924935.jpg')" class="relative overflow-hidden rounded-xl aspect-square group/img">
+              <img src="1775206924935.jpg" alt="Paletli Yüzme" class="w-full h-full object-cover grayscale group-hover/img:grayscale-0 brightness-75 group-hover/img:brightness-100 scale-100 group-hover/img:scale-110 tc"/>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 tc">
+                <span class="material-symbols-outlined text-white text-2xl drop-shadow-lg">zoom_in</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-32 bg-surface-container-low">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div>
+          <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Projeler" data-en="Projects">Projeler</span>
+          <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tight" data-tr="Çalışmalar" data-en="Work">Çalışmalar</h2>
+        </div>
+      </div>
+      <!-- Scroll Arrows -->
+      <div class="flex justify-end gap-2 mb-6">
+        <button onclick="scrollProjects(-1)" class="w-10 h-10 rounded-full glass-light border border-outline-variant/20 flex items-center justify-center hover:border-primary/40 hover:text-primary text-on-surface-variant tc">
+          <span class="material-symbols-outlined text-xl">chevron_left</span>
+        </button>
+        <button onclick="scrollProjects(1)" class="w-10 h-10 rounded-full glass-light border border-outline-variant/20 flex items-center justify-center hover:border-primary/40 hover:text-primary text-on-surface-variant tc">
+          <span class="material-symbols-outlined text-xl">chevron_right</span>
+        </button>
+      </div>
+
+      <!-- Horizontal Scroll Container -->
+      <div id="projects-scroll" class="flex gap-6 overflow-x-auto pb-4" style="scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none;">
+
+        <!-- Related Scenarios -->
+        <a href="https://related-scenarios.vercel.app/" target="_blank" rel="noopener noreferrer"
+           class="glass-light rounded-3xl border border-outline-variant/20 group hover:border-primary/30 tc relative overflow-hidden block flex-shrink-0"
+           style="width: 420px; height: 280px;">
+          <img src="Ekran görüntüsü 2026-04-03 110053.png" alt="Related Scenarios" class="absolute inset-0 w-full h-full object-cover object-top brightness-50 group-hover:brightness-75 scale-100 group-hover:scale-105 tc"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6 z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit mb-2">
+              <span class="font-label text-primary text-[10px] uppercase tracking-widest" data-tr="Canlı Proje" data-en="Live Project">Canlı Proje</span>
+            </div>
+            <h4 class="font-headline font-bold text-lg mb-1">Related Scenarios</h4>
+            <p class="font-body text-on-surface-variant text-xs leading-relaxed mb-3"
+               data-tr="Related Digital'daki satış stajım sürecinde, markalara on-site pazarlama kurgularını somut biçimde sunmak için bir web uygulaması geliştirdim. Oyunlaştırma, pop-up, kulakçık ve kişiselleştirilmiş öneri senaryolarını canlı demo olarak görüntüleyen bu platform, satış görüşmelerinde dönüşümü artırmak için bir araç olarak tasarlandı."
+               data-en="During my sales internship at Related Digital, I developed a web application to present on-site marketing scenarios to brands in a tangible way.">
+              Related Digital'daki satış stajım sürecinde, markalara on-site pazarlama kurgularını somut biçimde sunmak için bir web uygulaması geliştirdim.
+            </p>
+            <div class="flex items-center gap-2 text-primary font-label text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 tc">
+              <span data-tr="Siteyi Gör" data-en="View Site">Siteyi Gör</span>
+              <span class="material-symbols-outlined text-base group-hover:translate-x-1 tc">arrow_forward</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Kariyer Kulübü Etkinlikleri -->
+        <div class="glass-light rounded-3xl border border-outline-variant/20 group hover:border-primary/30 tc relative overflow-hidden flex-shrink-0"
+             style="width: 420px; height: 280px;">
+          <div id="poster-slider" class="absolute inset-0">
+            <div class="poster-slide absolute inset-0 tc" data-index="0">
+              <img src="1718373592743.jpg" alt="Career Summit Explore" class="w-full h-full object-cover brightness-50 group-hover:brightness-70 tc cursor-pointer" onclick="openCurrentPoster()"/>
+            </div>
+            <div class="poster-slide absolute inset-0 tc opacity-0" data-index="1">
+              <img src="1718373592638.jpg" alt="Kişisel Gelişim Zirvesi" class="w-full h-full object-cover brightness-50 group-hover:brightness-70 tc cursor-pointer" onclick="openCurrentPoster()"/>
+            </div>
+            <div class="poster-slide absolute inset-0 tc opacity-0" data-index="2">
+              <img src="1718373593537.jpg" alt="Sektör Buluşmaları" class="w-full h-full object-cover brightness-50 group-hover:brightness-70 tc cursor-pointer" onclick="openCurrentPoster()"/>
+            </div>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6 z-20 pointer-events-none">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit mb-2">
+              <span class="font-label text-primary text-[10px] uppercase tracking-widest" data-tr="Kulüp Etkinlikleri" data-en="Club Events">Kulüp Etkinlikleri</span>
+            </div>
+            <h4 class="font-headline font-bold text-lg mb-1" data-tr="Kariyer Kulübü Etkinlikleri" data-en="Career Club Events">Kariyer Kulübü Etkinlikleri</h4>
+            <p class="font-body text-on-surface-variant text-xs mb-1"
+               data-tr="2023-2024 döneminde Anadolu Üniversitesi Kariyer Kulübü Başkanı olarak ekibimle birlikte sene boyunca büyük etkinlikler organize ettim."
+               data-en="As President of Anadolu University Career Club in 2023-2024, I organized large-scale events with my team throughout the year.">
+              2023-2024 döneminde Anadolu Üniversitesi Kariyer Kulübü Başkanı olarak ekibimle birlikte büyük etkinlikler organize ettim.
+            </p>
+            <p id="poster-label" class="font-body text-primary text-xs mb-3">Career Summit Explore</p>
+            <div class="flex items-center gap-3 pointer-events-auto">
+              <button onclick="prevPoster()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center tc">
+                <span class="material-symbols-outlined text-white text-sm">chevron_left</span>
+              </button>
+              <div class="flex gap-1.5" id="poster-dots">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary poster-dot"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-white/30 poster-dot"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-white/30 poster-dot"></div>
+              </div>
+              <button onclick="nextPoster()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center tc">
+                <span class="material-symbols-outlined text-white text-sm">chevron_right</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Black Friday Sunumu -->
+        <a href="blackfriday.pdf.pdf" target="_blank" rel="noopener noreferrer"
+           class="glass-light rounded-3xl border border-outline-variant/20 group hover:border-primary/30 tc relative overflow-hidden block flex-shrink-0"
+           style="width: 420px; height: 280px;">
+          <img src="blackfriday.jpg.jpg" alt="Black Friday Sunumu" class="absolute inset-0 w-full h-full object-cover object-top brightness-50 group-hover:brightness-75 scale-100 group-hover:scale-105 tc"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6 z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit mb-2">
+              <span class="font-label text-primary text-[10px] uppercase tracking-widest">Related Digital</span>
+            </div>
+            <h4 class="font-headline font-bold text-lg mb-1" data-tr="Black Friday Sunumu" data-en="Black Friday Presentation">Black Friday Sunumu</h4>
+            <p class="font-body text-on-surface-variant text-xs leading-relaxed mb-3"
+               data-tr="Related Digital bünyesinde Black Friday dönemine özel hazırladığım sunumda on-site pazarlama kurguları ve oyunlaştırma senaryolarıyla etkileşimi artırmayı ve dönüşümü maksimize etmeyi hedefledim."
+               data-en="In this Black Friday presentation I prepared at Related Digital, I aimed to increase engagement and maximize conversion with on-site marketing scenarios and gamification.">
+              Related Digital bünyesinde Black Friday dönemine özel hazırladığım sunumda on-site pazarlama kurguları ve oyunlaştırma senaryolarıyla etkileşimi artırmayı hedefledim.
+            </p>
+            <div class="flex items-center gap-2 text-primary font-label text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 tc">
+              <span class="material-symbols-outlined text-base">picture_as_pdf</span>
+              <span data-tr="Sunumu Görüntüle" data-en="View Presentation">Sunumu Görüntüle</span>
+              <span class="material-symbols-outlined text-base group-hover:translate-x-1 tc">arrow_forward</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      <style>#projects-scroll::-webkit-scrollbar { display: none; }</style>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact" class="bg-surface-container-lowest py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-start mb-20">
+      <div>
+        <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="İletişim" data-en="Contact">İletişim</span>
+        <h2 class="font-headline text-4xl md:text-6xl font-black mb-6 tracking-tight" data-tr="Bana Ulaşın" data-en="Get in Touch">Bana Ulaşın</h2>
+        <p class="font-body text-on-surface-variant leading-relaxed tracking-wide mb-10 max-w-md"
+           data-tr="Bir proje, iş fırsatı veya sadece tanışmak için — her zaman açığım."
+           data-en="For a project, job opportunity, or just to connect — I'm always open.">
+          Bir proje, iş fırsatı veya sadece tanışmak için — her zaman açığım.
+        </p>
+        <div class="space-y-4 mb-10">
+          <a href="mailto:mygzguven@gmail.com" class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-xl glass-light flex items-center justify-center border border-outline-variant/10 group-hover:border-primary/30 tc">
+              <span class="material-symbols-outlined text-primary text-base">mail</span>
+            </div>
+            <span class="font-body text-on-surface-variant text-sm group-hover:text-on-surface tc">mygzguven@gmail.com</span>
+          </a>
+          <a href="tel:+905300233352" class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-xl glass-light flex items-center justify-center border border-outline-variant/10 group-hover:border-primary/30 tc">
+              <span class="material-symbols-outlined text-primary text-base">call</span>
+            </div>
+            <span class="font-body text-on-surface-variant text-sm group-hover:text-on-surface tc">+90 530 023 3352</span>
+          </a>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://www.linkedin.com/in/mustafa-ya%C4%9F%C4%B1z-g%C3%BCven-51b576226/" target="_blank" rel="noopener noreferrer"
+             class="w-10 h-10 rounded-xl glass-light flex items-center justify-center border border-outline-variant/10 hover:border-primary/40 hover:text-primary text-on-surface-variant tc" title="LinkedIn">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/ygzguven/" target="_blank" rel="noopener noreferrer" id="social-instagram"
+             class="w-10 h-10 rounded-xl glass-light flex items-center justify-center border border-outline-variant/10 hover:border-primary/40 hover:text-primary text-on-surface-variant tc" title="Instagram">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://github.com/ygzguven1907-ctrl" target="_blank" rel="noopener noreferrer" id="social-github"
+             class="w-10 h-10 rounded-xl glass-light flex items-center justify-center border border-outline-variant/10 hover:border-primary/40 hover:text-primary text-on-surface-variant tc" title="GitHub">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden">
+        <div class="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <form class="relative z-10 space-y-4" onsubmit="return false;">
+          <input type="text"
+                 class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
+                 data-placeholder-tr="Adınız" data-placeholder-en="Your Name" placeholder="Adınız"/>
+          <input type="email"
+                 class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
+                 data-placeholder-tr="E-posta Adresiniz" data-placeholder-en="Your Email" placeholder="E-posta Adresiniz"/>
+          <textarea rows="4"
+                    class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40 resize-none"
+                    data-placeholder-tr="Mesajınız" data-placeholder-en="Your Message" placeholder="Mesajınız"></textarea>
+          <button type="submit"
+                  class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-label font-bold uppercase py-4 rounded-xl tracking-widest text-xs hover:opacity-90 active:scale-95 tc"
+                  data-tr="Gönder" data-en="Send">Gönder</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/10 gap-4">
+      <div class="font-headline text-xl font-black tracking-tighter">MYG<span class="text-primary">.</span></div>
+      <div class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">© 2026 Mustafa Yağız Güven</div>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="flex items-center gap-2 group text-on-surface-variant hover:text-primary tc">
+        <span class="font-label text-[10px] uppercase tracking-[0.2em]" data-tr="Başa Dön" data-en="Back to Top">Başa Dön</span>
+        <span class="material-symbols-outlined text-sm group-hover:-translate-y-1 tc">arrow_upward</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<!-- KULAKCIK -->
+<div class="fixed right-0 top-1/2 -translate-y-1/2 z-[90] flex items-stretch">
+  <!-- Panel -->
+  <div id="kulakcik-panel" class="overflow-hidden rounded-l-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]" style="width:0; transition: width 600ms cubic-bezier(0.16,1,0.3,1); background: rgba(22,27,43,0.95); backdrop-filter: blur(24px); border: 1px solid rgba(146,204,255,0.1); border-right: none;">
+    <div class="w-64 p-6 flex flex-col gap-3 relative">
+      <!-- Kapat -->
+      <button onclick="closeKulakcik()" class="absolute top-4 right-4 w-6 h-6 rounded-full bg-outline-variant/20 hover:bg-outline-variant/40 flex items-center justify-center tc">
+        <span class="material-symbols-outlined text-on-surface-variant" style="font-size:14px">close</span>
+      </button>
+      <!-- Başlık -->
+      <div class="mb-3 pr-6">
+        <div class="font-headline font-black text-lg text-on-surface leading-tight">MYG<span class="text-primary">.</span></div>
+        <div class="w-8 h-px bg-primary/40 my-2"></div>
+        <div class="font-label text-[10px] uppercase tracking-[0.25em] text-on-surface-variant" data-tr="Hızlı Erişim" data-en="Quick Access">Hızlı Erişim</div>
+      </div>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/mustafa-ya%C4%9F%C4%B1z-g%C3%BCven-51b576226/" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-3 rounded-xl px-4 py-3.5 tc group relative overflow-hidden"
+         style="background: rgba(146,204,255,0.08); border: 1px solid rgba(146,204,255,0.15);">
+        <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 tc pointer-events-none"></div>
+        <div class="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0 border border-primary/20 group-hover:bg-primary/25 tc relative z-10">
+          <svg class="w-3.5 h-3.5 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="relative z-10">
+          <div class="font-label text-xs font-bold uppercase tracking-wider text-primary leading-tight" data-tr="LinkedIn" data-en="LinkedIn">LinkedIn</div>
+          <div class="font-body text-[10px] text-on-surface-variant mt-0.5" data-tr="Profili Görüntüle" data-en="View Profile">Profili Görüntüle</div>
+        </div>
+        <span class="material-symbols-outlined text-primary/60 text-sm ml-auto group-hover:translate-x-1 tc relative z-10">arrow_forward</span>
+      </a>
+      <!-- CV İndir -->
+      <a href="Mustafa Yağız Güven CV.pdf" download
+         class="flex items-center gap-3 rounded-xl px-4 py-3.5 tc group relative overflow-hidden"
+         style="background: linear-gradient(135deg, rgba(146,204,255,0.15), rgba(52,152,219,0.2)); border: 1px solid rgba(146,204,255,0.2);">
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 tc pointer-events-none" style="background: linear-gradient(135deg, rgba(146,204,255,0.25), rgba(52,152,219,0.3));"></div>
+        <div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30 group-hover:bg-primary/30 tc relative z-10">
+          <span class="material-symbols-outlined text-primary" style="font-size:16px">download</span>
+        </div>
+        <div class="relative z-10">
+          <div class="font-label text-xs font-bold uppercase tracking-wider text-primary leading-tight" data-tr="CV İndir" data-en="Download CV">CV İndir</div>
+          <div class="font-body text-[10px] text-on-surface-variant mt-0.5" data-tr="PDF Formatında" data-en="PDF Format">PDF Formatında</div>
+        </div>
+        <span class="material-symbols-outlined text-primary/60 text-sm ml-auto group-hover:translate-y-0.5 tc relative z-10">south</span>
+      </a>
+    </div>
+  </div>
+  <!-- Kulak -->
+  <button onclick="toggleKulakcik()"
+          class="w-8 flex flex-col items-center justify-center gap-2 py-6 rounded-l-xl tc hover:w-9 shadow-[-4px_0_20px_rgba(146,204,255,0.1)]"
+          style="background: linear-gradient(180deg, #92ccff 0%, #3498db 100%); transition: width 300ms cubic-bezier(0.16,1,0.3,1);">
+    <span class="material-symbols-outlined text-on-primary-container" style="font-size:15px; writing-mode:horizontal-tb">bolt</span>
+    <span class="font-label text-on-primary-container" style="font-size:9px; writing-mode:vertical-rl; letter-spacing:0.2em; text-transform:uppercase;" data-tr="Hızlı Erişim" data-en="Quick Access">Hızlı Erişim</span>
+  </button>
+</div>
+
+<script>
+  let kulakcikOpen = false;
+  function toggleKulakcik() {
+    kulakcikOpen = !kulakcikOpen;
+    document.getElementById('kulakcik-panel').style.width = kulakcikOpen ? '256px' : '0';
+  }
+  function closeKulakcik() {
+    kulakcikOpen = false;
+    document.getElementById('kulakcik-panel').style.width = '0';
+  }
+</script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm opacity-0 pointer-events-none" style="transition: opacity 400ms cubic-bezier(0.16,1,0.3,1);">
+  <button onclick="closeLightbox()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 tc z-10">
+    <span class="material-symbols-outlined text-white">close</span>
+  </button>
+  <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] rounded-2xl shadow-2xl object-contain" onclick="event.stopPropagation()"/>
+</div>
+
+<script>
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.style.opacity = '1';
+    lb.style.pointerEvents = 'auto';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.style.opacity = '0';
+    lb.style.pointerEvents = 'none';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Language toggle
+  function setLang(lang) {
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.querySelectorAll('[data-tr]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+    document.querySelectorAll('[data-placeholder-tr]').forEach(el => {
+      el.placeholder = lang === 'tr' ? el.dataset.placeholderTr : el.dataset.placeholderEn;
+    });
+    document.documentElement.lang = lang;
+  }
+
+  // Poster slider
+  const posterLabels = ['Kişisel Gelişim Zirvesi', 'Career Summit Explore', 'Sektör Buluşmaları'];
+  const posterFiles = ['1718373592743.jpg', '1718373592638.jpg', '1718373593537.jpg'];
+  function openCurrentPoster() { openLightbox(posterFiles[posterIndex]); }
+  let posterIndex = 0;
+  let posterTimer = setInterval(nextPoster, 3000);
+
+  function showPoster(i) {
+    document.querySelectorAll('.poster-slide').forEach((el, idx) => {
+      el.style.opacity = idx === i ? '1' : '0';
+    });
+    document.querySelectorAll('.poster-dot').forEach((el, idx) => {
+      el.className = idx === i
+        ? 'w-1.5 h-1.5 rounded-full bg-primary poster-dot'
+        : 'w-1.5 h-1.5 rounded-full bg-white/30 poster-dot';
+    });
+    document.getElementById('poster-label').textContent = posterLabels[i];
+    posterIndex = i;
+  }
+
+  function nextPoster() {
+    clearInterval(posterTimer);
+    showPoster((posterIndex + 1) % 3);
+    posterTimer = setInterval(nextPoster, 3000);
+  }
+
+  function prevPoster() {
+    clearInterval(posterTimer);
+    showPoster((posterIndex + 2) % 3);
+    posterTimer = setInterval(nextPoster, 3000);
+  }
+
+  function scrollProjects(dir) {
+    document.getElementById('projects-scroll').scrollBy({ left: dir * 440, behavior: 'smooth' });
+  }
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navLinks = document.querySelectorAll('nav a.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('text-primary');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('text-primary');
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
