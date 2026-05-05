@@ -755,19 +755,20 @@ tailwind.config = {
       <!-- Form -->
       <div class="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden">
         <div class="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-        <form class="relative z-10 space-y-4" onsubmit="return false;">
-          <input type="text"
+        <form id="contact-form" class="relative z-10 space-y-4" onsubmit="handleContactSubmit(event)">
+          <input id="contact-name" type="text"
                  class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
-                 data-placeholder-tr="Adınız" data-placeholder-en="Your Name" placeholder="Adınız"/>
-          <input type="email"
+                 data-placeholder-tr="Adınız" data-placeholder-en="Your Name" placeholder="Adınız" required/>
+          <input id="contact-email" type="email"
                  class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
-                 data-placeholder-tr="E-posta Adresiniz" data-placeholder-en="Your Email" placeholder="E-posta Adresiniz"/>
-          <textarea rows="4"
+                 data-placeholder-tr="E-posta Adresiniz" data-placeholder-en="Your Email" placeholder="E-posta Adresiniz" required/>
+          <textarea id="contact-message" rows="4"
                     class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40 resize-none"
-                    data-placeholder-tr="Mesajınız" data-placeholder-en="Your Message" placeholder="Mesajınız"></textarea>
-          <button type="submit"
+                    data-placeholder-tr="Mesajınız" data-placeholder-en="Your Message" placeholder="Mesajınız" required></textarea>
+          <button id="contact-btn" type="submit"
                   class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-label font-bold uppercase py-4 rounded-xl tracking-widest text-xs hover:opacity-90 active:scale-95 tc"
                   data-tr="Gönder" data-en="Send">Gönder</button>
+          <p id="contact-status" class="text-center text-sm font-body hidden"></p>
         </form>
       </div>
     </div>
@@ -981,6 +982,46 @@ tailwind.config = {
       if (a.getAttribute('href') === '#' + current) a.classList.add('text-primary');
     });
   }, { passive: true });
+</script>
+
+<script>
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contact-btn');
+  const status = document.getElementById('contact-status');
+  const isEn = document.documentElement.lang === 'en';
+
+  btn.disabled = true;
+  btn.textContent = isEn ? 'Sending...' : 'Gönderiliyor...';
+  status.className = 'text-center text-sm font-body hidden';
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: document.getElementById('contact-name').value,
+        email: document.getElementById('contact-email').value,
+        message: document.getElementById('contact-message').value,
+      }),
+    });
+
+    if (res.ok) {
+      status.textContent = isEn ? '✓ Message sent! I will get back to you soon.' : '✓ Mesajın iletildi! En kısa sürede dönüş yapacağım.';
+      status.className = 'text-center text-sm font-body text-primary';
+      document.getElementById('contact-form').reset();
+    } else {
+      const data = await res.json();
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    status.textContent = isEn ? '✗ Could not send. Please try again.' : '✗ Gönderilemedi. Lütfen tekrar deneyin.';
+    status.className = 'text-center text-sm font-body text-red-400';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = isEn ? 'Send' : 'Gönder';
+  }
+}
 </script>
 </body>
 </html>
