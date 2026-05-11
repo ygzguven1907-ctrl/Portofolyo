@@ -84,9 +84,58 @@ tailwind.config = {
         <button onclick="setLang('en')" id="btn-en" class="lang-btn px-2 py-1 uppercase tracking-widest text-on-surface-variant">EN</button>
       </div>
       <a href="#contact" class="hidden md:block bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-label font-bold uppercase px-5 py-2 rounded-full text-xs tracking-wider hover:scale-105 active:scale-95 tc" data-tr="İletişim" data-en="Connect">İletişim</a>
+      <!-- Hamburger butonu - sadece mobilde -->
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5" onclick="toggleMobileMenu()" aria-label="Menü">
+        <span id="hb-line1" class="block w-5 h-0.5 bg-on-surface rounded-full transition-all duration-300"></span>
+        <span id="hb-line2" class="block w-5 h-0.5 bg-on-surface rounded-full transition-all duration-300"></span>
+        <span id="hb-line3" class="block w-5 h-0.5 bg-on-surface rounded-full transition-all duration-300"></span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobil menü açılır panel -->
+  <div id="mobile-menu" class="md:hidden hidden mt-2 glass rounded-2xl border border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
+    <div class="flex flex-col py-3">
+      <a href="#about"             onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="Hakkımda"          data-en="About">Hakkımda</a>
+      <a href="#career"            onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="Kariyer"            data-en="Career">Kariyer</a>
+      <a href="#skills"            onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="Beceriler"          data-en="Skills">Beceriler</a>
+      <a href="#spor"              onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="Spor"               data-en="Sport">Spor</a>
+      <a href="#projects"          onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="Projeler"           data-en="Projects">Projeler</a>
+      <a href="#degerlendirmeler"  onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="Değerlendirmeler"   data-en="Reviews">Değerlendirmeler</a>
+      <a href="#contact"           onclick="closeMobileMenu()" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary hover:bg-white/5 px-6 py-3.5 tc nav-link" data-tr="İletişim"           data-en="Contact">İletişim</a>
     </div>
   </div>
 </nav>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var l1 = document.getElementById('hb-line1');
+  var l2 = document.getElementById('hb-line2');
+  var l3 = document.getElementById('hb-line3');
+  var isOpen = !menu.classList.contains('hidden');
+  if (isOpen) {
+    menu.classList.add('hidden');
+    l1.style.transform = ''; l1.style.opacity = '';
+    l2.style.transform = ''; l2.style.opacity = '';
+    l3.style.transform = ''; l3.style.opacity = '';
+  } else {
+    menu.classList.remove('hidden');
+    l1.style.transform = 'translateY(8px) rotate(45deg)';
+    l2.style.opacity = '0';
+    l3.style.transform = 'translateY(-8px) rotate(-45deg)';
+  }
+}
+function closeMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var l1 = document.getElementById('hb-line1');
+  var l2 = document.getElementById('hb-line2');
+  var l3 = document.getElementById('hb-line3');
+  menu.classList.add('hidden');
+  l1.style.transform = ''; l1.style.opacity = '';
+  l2.style.transform = ''; l2.style.opacity = '';
+  l3.style.transform = ''; l3.style.opacity = '';
+}
+</script>
 
 <!-- HERO -->
 <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
