@@ -73,8 +73,9 @@ tailwind.config = {
       <a href="#career"     class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Kariyer"    data-en="Career">Kariyer</a>
       <a href="#skills"     class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Beceriler"  data-en="Skills">Beceriler</a>
       <a href="#spor"       class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Spor"       data-en="Sport">Spor</a>
-      <a href="#projects"   class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Projeler"   data-en="Projects">Projeler</a>
-      <a href="#contact"    class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="İletişim"   data-en="Contact">İletişim</a>
+      <a href="#projects"        class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Projeler"        data-en="Projects">Projeler</a>
+      <a href="#degerlendirmeler" class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="Değerlendirmeler" data-en="Reviews">Değerlendirmeler</a>
+      <a href="#contact"         class="font-label text-xs tracking-[0.18em] uppercase text-on-surface-variant hover:text-primary tc nav-link" data-tr="İletişim"        data-en="Contact">İletişim</a>
     </div>
     <div class="flex items-center gap-3">
       <div class="flex items-center gap-1 font-label text-xs">
@@ -713,6 +714,40 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- DEĞERLENDİRMELER -->
+<section id="degerlendirmeler" class="py-32 bg-surface-container-lowest px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Değerlendirmeler" data-en="Reviews">Değerlendirmeler</span>
+      <h2 class="font-headline text-4xl font-black tracking-tight" data-tr="Neler Dediler?" data-en="What Did They Say?">Neler Dediler?</h2>
+    </div>
+
+    <!-- Yorum Kartları -->
+    <div id="reviews-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"></div>
+    <p id="reviews-empty" class="text-center text-on-surface-variant font-body text-sm hidden" data-tr="Henüz değerlendirme yok." data-en="No reviews yet.">Henüz değerlendirme yok.</p>
+
+    <!-- Yorum Formu -->
+    <div class="max-w-xl mx-auto glass p-8 rounded-3xl border border-white/5">
+      <h3 class="font-headline text-xl font-bold mb-6" data-tr="Değerlendirme Yaz" data-en="Write a Review">Değerlendirme Yaz</h3>
+      <form id="review-form" class="space-y-4" onsubmit="handleReviewSubmit(event)">
+        <input id="review-name" type="text" required
+               class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
+               data-placeholder-tr="Adınız *" data-placeholder-en="Your Name *" placeholder="Adınız *"/>
+        <input id="review-title" type="text"
+               class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
+               data-placeholder-tr="Unvan / Şirket" data-placeholder-en="Title / Company" placeholder="Unvan / Şirket"/>
+        <textarea id="review-content" rows="4" required
+                  class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40 resize-none"
+                  data-placeholder-tr="Yorumunuz *" data-placeholder-en="Your Review *" placeholder="Yorumunuz *"></textarea>
+        <button id="review-btn" type="submit"
+                class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-label font-bold uppercase py-4 rounded-xl tracking-widest text-xs hover:opacity-90 active:scale-95 tc"
+                data-tr="Gönder" data-en="Submit">Gönder</button>
+        <p id="review-status" class="text-center text-sm font-body hidden"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <footer id="contact" class="bg-surface-container-lowest py-24 px-6">
   <div class="max-w-6xl mx-auto">
@@ -988,6 +1023,67 @@ tailwind.config = {
 </script>
 
 <script>
+// Reviews
+async function loadReviews() {
+  try {
+    const res = await fetch('https://jpnnoscuoxkcfaiyfzuz.supabase.co/rest/v1/reviews?approved=eq.true&order=created_at.desc', {
+      headers: {
+        'apikey': 'sb_publishable_BR7u15kL7ZGgWSg401P-Ow_H2fn1A4k',
+        'Authorization': 'Bearer sb_publishable_BR7u15kL7ZGgWSg401P-Ow_H2fn1A4k',
+      }
+    });
+    const reviews = await res.json();
+    const grid = document.getElementById('reviews-grid');
+    const empty = document.getElementById('reviews-empty');
+    if (!reviews.length) { empty.classList.remove('hidden'); return; }
+    grid.innerHTML = reviews.map(r => `
+      <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc">
+        <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5">"${r.content}"</p>
+        <div>
+          <div class="font-headline font-bold text-sm">${r.name}</div>
+          ${r.title ? `<div class="font-label text-[11px] text-primary uppercase tracking-wider mt-1">${r.title}</div>` : ''}
+        </div>
+      </div>
+    `).join('');
+  } catch(e) { console.error(e); }
+}
+loadReviews();
+
+async function handleReviewSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('review-btn');
+  const status = document.getElementById('review-status');
+  const isEn = document.documentElement.lang === 'en';
+  btn.disabled = true;
+  btn.textContent = isEn ? 'Sending...' : 'Gönderiliyor...';
+  status.className = 'text-center text-sm font-body hidden';
+  try {
+    const res = await fetch('/api/review', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: document.getElementById('review-name').value,
+        title: document.getElementById('review-title').value,
+        content: document.getElementById('review-content').value,
+      }),
+    });
+    if (res.ok) {
+      status.textContent = isEn ? '✓ Thank you! Your review is pending approval.' : '✓ Teşekkürler! Yorumun onay bekliyor.';
+      status.className = 'text-center text-sm font-body text-primary';
+      document.getElementById('review-form').reset();
+    } else {
+      throw new Error();
+    }
+  } catch {
+    status.textContent = isEn ? '✗ Could not send. Please try again.' : '✗ Gönderilemedi. Lütfen tekrar deneyin.';
+    status.className = 'text-center text-sm font-body text-red-400';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = isEn ? 'Submit' : 'Gönder';
+    status.classList.remove('hidden');
+  }
+}
+
 async function handleContactSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('contact-btn');
