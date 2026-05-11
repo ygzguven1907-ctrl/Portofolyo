@@ -719,7 +719,7 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16">
       <span class="font-label text-primary text-[11px] uppercase tracking-[0.35em] mb-4 block" data-tr="Değerlendirmeler" data-en="Reviews">Değerlendirmeler</span>
-      <h2 class="font-headline text-4xl font-black tracking-tight" data-tr="Neler Dediler?" data-en="What Did They Say?">Neler Dediler?</h2>
+      <h2 class="font-headline text-4xl font-black tracking-tight" data-tr="Görüşler" data-en="Testimonials">Görüşler</h2>
     </div>
 
     <!-- Yorum Kartları -->
@@ -736,6 +736,9 @@ tailwind.config = {
         <input id="review-title" type="text"
                class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
                data-placeholder-tr="Unvan / Şirket" data-placeholder-en="Title / Company" placeholder="Unvan / Şirket"/>
+        <input id="review-linkedin" type="url"
+               class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40"
+               data-placeholder-tr="LinkedIn Profil URL (İsteğe bağlı)" data-placeholder-en="LinkedIn Profile URL (Optional)" placeholder="LinkedIn Profil URL (İsteğe bağlı)"/>
         <textarea id="review-content" rows="4" required
                   class="w-full bg-surface-container-lowest/80 rounded-xl py-4 px-5 text-on-surface font-body text-sm border border-transparent focus:outline-none focus:border-primary/40 tc placeholder-on-surface-variant/40 resize-none"
                   data-placeholder-tr="Yorumunuz *" data-placeholder-en="Your Review *" placeholder="Yorumunuz *"></textarea>
@@ -1039,9 +1042,14 @@ async function loadReviews() {
     grid.innerHTML = reviews.map(r => `
       <div class="glass-light p-6 rounded-2xl border border-outline-variant/10 card-hover tc">
         <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-5">"${r.content}"</p>
-        <div>
-          <div class="font-headline font-bold text-sm">${r.name}</div>
-          ${r.title ? `<div class="font-label text-[11px] text-primary uppercase tracking-wider mt-1">${r.title}</div>` : ''}
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <div class="font-headline font-bold text-sm">${r.name}</div>
+            ${r.title ? `<div class="font-label text-[11px] text-primary uppercase tracking-wider mt-1">${r.title}</div>` : ''}
+          </div>
+          ${r.linkedin ? `<a href="${r.linkedin}" target="_blank" rel="noopener" class="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 tc" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-primary"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>` : ''}
         </div>
       </div>
     `).join('');
@@ -1064,6 +1072,7 @@ async function handleReviewSubmit(e) {
       body: JSON.stringify({
         name: document.getElementById('review-name').value,
         title: document.getElementById('review-title').value,
+        linkedin: document.getElementById('review-linkedin').value,
         content: document.getElementById('review-content').value,
       }),
     });

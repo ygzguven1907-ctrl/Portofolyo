@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, title, content } = req.body;
+  const { name, title, content, linkedin } = req.body;
 
   if (!name || !content) {
     return res.status(400).json({ error: 'İsim ve yorum zorunludur.' });
@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       'apikey': process.env.SUPABASE_SERVICE_KEY,
       'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_KEY}`,
     },
-    body: JSON.stringify({ name, title, content, token, approved: false }),
+    body: JSON.stringify({ name, title, content, linkedin: linkedin || null, token, approved: false }),
   });
 
   if (!sbRes.ok) {
